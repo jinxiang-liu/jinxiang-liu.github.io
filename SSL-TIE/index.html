@@ -163,40 +163,38 @@
   }
 </style>
 
-	<title>Self-supervised Tumor Segmentation through Layer Decomposition</title>
+	<title>Exploiting Transformation Invariance and Equivariance for Self-supervised Sound Localisation</title>
 </head>
 
 <body>
 	<br>
 	<center>
-	<span style="font-size:36px">Self-supervised Tumor Segmentation through Layer Decomposition</span><br><br><br>
+	<span style="font-size:32px">Exploiting Transformation Invariance and Equivariance for Self-supervised Sound Localisation</span><br><br><br>
 	</center>
 	<table align="center" width="800px">
             <tbody><tr>
                     <td align="center" width="160px">
               <center>
-                <span style="font-size:16px"><a href="https://xiaoman-zhang.github.io/">Xiaoman Zhang</a><sup>1</sup></span>
+                <span style="font-size:16px"><a href="https://jxliut.github.io/">Jinxiang Liu</a><sup></sup></span>
                 </center>
                 </td>
                     <td align="center" width="160px">
               <center>
-                <span style="font-size:16px"><a href="https://weidixie.github.io/">Weidi Xie</a><sup>2</sup></span>
+                <span style="font-size:16px"><a href="ju-chen.github.io/">Chen Ju</a><sup></sup></span>
                 </center>
                 </td>
                     <td align="center" width="160px">
               <center>
-                <span style="font-size:16px"><a href="https://scholar.google.com/citations?user=BAZSE7wAAAAJ&hl=fr">Chaoqin Huang</a><sup>1</sup></span>
+                <span style="font-size:16px"><a href="https://weidixie.github.io/">Weidi Xie</a><sup></sup></span>
                 </center>
                 </td>
                     <td align="center" width="160px">
-	      <center>
-                <span style="font-size:16px"><a href="https://mediabrain.sjtu.edu.cn/yazhang/">Ya Zhang</a><sup>1</sup></span>
+	          <center>
+                <span style="font-size:16px"><a href="https://mediabrain.sjtu.edu.cn/yazhang/">Ya Zhang</a><sup></sup></span>
                 </center>
-		</td>
-                    <td align="center" width="160px">	    
-              <center>
-                <span style="font-size:16px"><a href="https://mediabrain.sjtu.edu.cn/">Yanfeng Wang</a><sup>1</sup></span>
-                </center>
+		        </td>
+                 
+             
             </tr>
 
         </tbody></table><br>
@@ -210,14 +208,14 @@
                 </td>
                     <td align="center" width="300px">
               <center>
-                    <span style="font-size:16px"><sup>1</sup>CMIC, Shanghai Jiao Tong University</span>
+                    <span style="font-size:16px"><sup></sup>CMIC, Shanghai Jiao Tong University</span>
                 </center>
-                </td>
+                <!-- </td>
                     <td align="center" width="300px">
               <center>
                     <span style="font-size:16px"><sup>2</sup>VGG, University of Oxford</span>
                 </center>
-                </td>
+                </td> -->
         </tr></tbody></table>
 	
 	<table align="center" width="700px">
@@ -226,7 +224,7 @@
                 <center>
                   <br>
                   <span style="font-size:20px">Code
-                    <a href="https://github.com/xiaoman-zhang/Layer-Decomposition"> [GitHub]</a>
+                    <a href="https://github.com/jxliut/SSL-TIE"> [GitHub]</a>
                   </span>
                 </center>
               </td>
@@ -235,7 +233,7 @@
                 <center>
                   <br>
                   <span style="font-size:20px">
-                    Paper <a href="https://arxiv.org/pdf/2109.03230.pdf"> [arXiv]</a>
+                    Paper <a href="https://arxiv.org/abs/2206.12772"> [arXiv]</a>
                   </span>
                 </center>
               </td>
@@ -255,82 +253,350 @@
       <center><h2> Abstract </h2> </center>
       <p style="text-align:justify; text-justify:inter-ideograph;">
       <left>
-	      In this paper, we target self-supervised representation learning for zero-shot tumor segmentation. We make the following contributions: 
-	<i>First</i>, we advocate a zero-shot setting, where models from pre-training should be directly applicable for the downstream task, without using any manual annotations. 
-	<i>Second</i>, we take inspiration from ``layer-decomposition", and innovate on the training regime with simulated tumor data. 
-	<i>Third</i>, we conduct extensive ablation studies to analyse the critical components in data simulation, and validate the necessity of different proxy tasks.We demonstrate that, with sufficient texture randomization in simulation, model trained on synthetic data can effortlessly generalise to segment real tumor data. 
-	<i>Forth</i>, our approach achieves superior results for zero-shot tumor segmentation on different downstream datasets, BraTS2018 for brain tumor segmentation and LiTS2017 for liver tumor segmentation. While evaluating the model transferability for tumor segmentation under a low-annotation regime, the proposed approach also outperforms all existing self-supervised approaches, opening up the usage of self-supervised learning in practical scenarios.
+	      We present a simple yet effective self-supervised framework for audio-visual representation learning,  to localize the sound source in videos. To understand what enables to learn useful representations, we systematically investigate the effects of data augmentations, and reveal that (1) composition of data augmentations plays a critical role, {\em i.e.}~explicitly encouraging the audio-visual representations to be invariant to various transformations~({\em transformation invariance}); (2) enforcing geometric consistency substantially improves the quality of learned representations, {\em i.e.}~the detected sound source should follow the same transformation applied on input video frames~({\em transformation equivariance}). Extensive experiments demonstrate that our model significantly outperforms previous methods on two sound localization benchmarks, namely, Flickr-SoundNet and VGG-Sound. Additionally, we also evaluate audio retrieval and cross-modal retrieval tasks. In both cases, our self-supervised models demonstrate superior retrieval performances, even competitive with the supervised approach in audio retrieval. This reveals the proposed framework learns strong multi-modal representations that are beneficial to sound localisation and generalization to further applications.
       </left></p>
-      <p><img class="left"  src="./resources/framework.png" width="800px"></p>
+      <p><img class="left"  src="./resources/framework.gif" width="800px"></p>
 	
       <br><hr>
-      <center> <h2> Data Synthesis </h2> </center>
+      <center> <h2> Data Transformations </h2> </center>
       <p style="text-align:justify; text-justify:inter-ideograph;"><left>
-	  Illustration of the data simulation pipeline.
-	  (a) Data simulation pipeline. We first simulate the tumor with a transformed image and a generated 3D mask, which provide texture and shape respectively. Then the synthetic data is composed by blending the simulated tumor into the normal image.
-	  (b) Visualisation of shape simulation. The first row presents the 3D polyhedrons with various shapes, sizes and locations, and the second row shows the binary masks.
-	  (c) Visualisation of texture simulation. We have displayed a randomly selected normal image undergoing different transformations functions (top row), the corresponding simulated tumor (second row), and synthetic training data (bottom row) in columns 2-8. 
+	  With the proposed framework, we investiagte the effects of correspondence invariance and geometrical transfomation equivariance properties of following augmentations:
+
 	</left></p>
-        <p><img class="left"  src="./resources/supple_fig_datasyn.png" width="800px"></p>
+        <p><img class="left"  src="./resources/transformations.png" width="800px"></p>
       <br>
       <hr>
 
-      <center><h2>Visualizations of Zero-shot Tumor Segmentation </h2></center>
-      <p><b>2D Visualization </b> </p>
+      <center><h2>Visualizations of Visual Sound Source Localisation </h2></center>
+      <p><b>Image Visualization </b> </p>
       <p><left>
-	      From left to right: input volume, ground truth (green) vs. predicted mask (red), reconstructed normal organ, reconstructed tumor, predicted mask.
+	      
       </left></p>
-      <p><img class="center"  src="./resources/result.png" width="800px"></p>
+      <p><img class="center"  src="./resources/vssl.png" width="800px"></p>
 	
-      <p><b>3D Visualization </b> </p>
-      <p><left>
-	      From left to right: input volume, ground truth, reconstructed normal organ, reconstructed tumor, predicted mask.
-      </left></p>
-      <p><img class="left"  src="./resources/result_bt/concat_30.gif" width="800px"></p>
-      <p><img class="left"  src="./resources/result_bt/concat_5.gif" width="800px"></p>
-      <p><img class="left"  src="./resources/result_lits/concat_4.gif" width="800px"></p>
-      <p><img class="left"  src="./resources/result_lits/concat_8.gif" width="800px"></p>
+      <p><b>Video demos </b> </p>
+      <div style="position: relative; padding: 30% 45%;">
+        <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="https://player.bilibili.com/player.html?aid=983123911&bvid=BV1Dt4y1t7PM&cid=764409644&page=1" frameborder="no" scrolling="no"></iframe>
+      </div>
+
       <br>
       <hr>
 
-      <center><h2>Results</h2></center>
-      <p><b>R1: Fully Supervised Fine-tuning </b> </p>
+      <center><h2>Visualizations of Retrieval </h2></center>
+      <p><b> (i) Audio retrieval </b> </p>
       <p><left>
-	      Compare with SOTA self-supervised methods on WTS (brain whole tumor segmentation) and LTS (liver tumor segmentation).
+	      
       </left></p>
-      <p><img class="center"  src="./resources/table_1.png" width="800px"></p>
+      <p align="justify">
+        1. Query audio  </p></div>
+        <p style="text-align: center;">
+        <audio preload="none" controls="">
+          <source src="./resources/retrieval/audio/q1.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+                <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio/q1.png" alt="image" height="90" />      </span> </p></details>
+            
+        <p align="justify">
+              Retrieved audios  </p></div>
+ 
+      <span>
+        <p style="text-align: center;">
+        <audio preload="none" controls="">
+          <source src="./resources/retrieval/audio/q1-1.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio> 
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-1.png" alt="image" height="90" />      </span> </p></details>
+
+      </span>
+      <span>
+        <p style="text-align: center;">
+        <audio preload="none" controls="" >
+          <source src="./resources/retrieval/audio/q1-2.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-2.png" alt="image" height="90" />  
+                  </span> </p></details>        
+      </span>
+      <span>
+        <p style="text-align: center;"> 
+        <audio preload="none" controls="" >
+          <source src="./resources/retrieval/audio/q1-3.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-3.png" alt="image" height="90" />  
+                  </span> </p></details>        
+      </span>
+
+      <span>
+        <p style="text-align: center;">
+        <audio preload="none" controls="" >
+          <source src="./resources/retrieval/audio/q1-4.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-4.png" alt="image" height="90" />  
+                  </span> </p></details>        
+      </span>
+
+      <span>
+        <p style="text-align: center;">
+        <audio preload="none" controls="" >
+          <source src="./resources/retrieval/audio/q1-5.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-5.png" alt="image" height="90" />  
+                  </span> </p></details>        
+      </span>
+
+
+
+      <p align="justify">
+        2. Query audio  </p></div>
+        <p style="text-align: center;">
+        <audio preload="none" controls="">
+          <source src="./resources/retrieval/audio/q2.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+                <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio/q2.png" alt="image" height="90" />      </span> </p></details>
+            
+        <p align="justify">
+              Retrieved audios  </p></div>
+ 
+      <span>
+        <p style="text-align: center;">
+        <audio preload="none" controls="">
+          <source src="./resources/retrieval/audio/q2-1.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio> 
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-1.png" alt="image" height="90" />      </span> </p></details>
+
+      </span>
+      <span>
+        <p style="text-align: center;">
+        <audio preload="none" controls="" >
+          <source src="./resources/retrieval/audio/q2-2.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-2.png" alt="image" height="90" />  
+                  </span> </p></details>        
+      </span>
+      <span>
+        <p style="text-align: center;"> 
+        <audio preload="none" controls="" >
+          <source src="./resources/retrieval/audio/q2-3.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-3.png" alt="image" height="90" />  
+                  </span> </p></details>        
+      </span>
+
+      <span>
+        <p style="text-align: center;">
+        <audio preload="none" controls="" >
+          <source src="./resources/retrieval/audio/q2-4.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-4.png" alt="image" height="90" />  
+                  </span> </p></details>        
+      </span>
+
+      <span>
+        <p style="text-align: center;">
+        <audio preload="none" controls="" >
+          <source src="./resources/retrieval/audio/q2-5.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-5.png" alt="image" height="90" />  
+                  </span> </p></details>        
+      </span>
+
+
+
+
+      <p><b> (ii) Audio-image cross-modal retrieval </b> </p>
       <p><left>
-	      Compare with SOTA self-supervised methods on BTS (Whole tumor, Tumor core and Enhanced tumor segmentation).
+	      
       </left></p>
-      <p><img class="center"  src="./resources/table_2.png" width="800px"></p>
-	
-      <p><b>R2: Analysis of Model Transferability </b> </p>	
-	<div class="container">
-		<div class="image">
-			<img style="width:400px" src='./resources/result_2.png'></img>
-		</div>
-		<div class="text"> 
-			<p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
-				For both tasks, our proposed method shows superior performance on all supervision level.  
-			</p>
-		</div>
-	</div>
-      <p><img class="center"  src="./resources/table_3.png" width="800px"></p>
-	
-      <p><b>R3: Results of Zero-shot Tumor Segmentation </b></p>
-	<div class="container">
-		<div class="image">
-			<img style="width:400px" src='./resources/table.png'></img>
-		</div>
-		<div class="text"> 
-			<p>  We compare with approaches that advocate zero-shot tumor segmentation, <i>i.e.</i> the state-of-the-art unsupervised anomaly segmentation methods.
-				As shown in the Table, our approach surpasses the other ones by a large margin.
-			</p>
-		</div>
-	</div>
+      <p align="justify">
+        1. Query audio  </p></div>
+        <p style="text-align: center;">
+        <audio preload="none" controls="">
+          <source src="./resources/retrieval/audio-image/q1.wav" type="audio/wav">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+                <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio-image/q1.png" alt="image" height="90" />      </span> </p></details>
+            
+        <p align="justify">
+              Retrieved images  </p></div>
+ 
+      <span>
+        <p style="text-align: center;">
+          <span><img src="./resources/retrieval/audio-image/q1-1.png" alt="image" height="90" />      </span>
+          <span><img src="./resources/retrieval/audio-image/q1-2.png" alt="image" height="90" />      </span>
+          <span><img src="./resources/retrieval/audio-image/q1-3.png" alt="image" height="90" />      </span>
+          <span><img src="./resources/retrieval/audio-image/q1-4.png" alt="image" height="90" />      </span>
+          <span><img src="./resources/retrieval/audio-image/q1-5.png" alt="image" height="90" />      </span>
+
+      </span>
+      <p align="justify">
+      2. Query audio   </p></div>
+      <p style="text-align: center;">
+      <audio preload="none" controls="">
+        <source src="./resources/retrieval/audio-image/q2.wav" type="audio/wav">
+              Your browser does not support the audio tag.
+            </audio>
+          </p>
+              <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio-image/q2.png" alt="image" height="90" />      </span> </p></details>
+          
+      <p align="justify">
+            Retrieved images  </p></div>
+
+    <span>
+      <p style="text-align: center;">
+        <span><img src="./resources/retrieval/audio-image/q2-1.png" alt="image" height="90" />      </span>
+        <span><img src="./resources/retrieval/audio-image/q2-2.png" alt="image" height="90" />      </span>
+        <span><img src="./resources/retrieval/audio-image/q2-3.png" alt="image" height="90" />      </span>
+        <span><img src="./resources/retrieval/audio-image/q2-4.png" alt="image" height="90" />      </span>
+        <span><img src="./resources/retrieval/audio-image/q2-5.png" alt="image" height="90" />      </span>
+
+    </span>
+
+    <p align="justify">
+    3. Query audio     </p></div>
+    <p style="text-align: center;">
+    <audio preload="none" controls="">
+      <source src="./resources/retrieval/audio-image/q3.wav" type="audio/wav">
+            Your browser does not support the audio tag.
+          </audio>
+        </p>
+            <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio-image/q3.png" alt="image" height="90" />      </span> </p></details>
+        
+    <p align="justify">
+          Retrieved images  </p></div>
+
+  <span>
+    <p style="text-align: center;">
+      <span><img src="./resources/retrieval/audio-image/q3-1.png" alt="image" height="90" />      </span>
+      <span><img src="./resources/retrieval/audio-image/q3-2.png" alt="image" height="90" />      </span>
+      <span><img src="./resources/retrieval/audio-image/q3-3.png" alt="image" height="90" />      </span>
+      <span><img src="./resources/retrieval/audio-image/q3-4.png" alt="image" height="90" />      </span>
+      <span><img src="./resources/retrieval/audio-image/q3-5.png" alt="image" height="90" />      </span>
+
+  </span>
+
+
       
-      <br>
-      <hr>
+
+
+      
+
+
+
+
+
+
+
+      <br><hr>
+
+      <center><h2>Quantitative Results</h2></center>
+      <p><b>R1: Visual sound source localisation </b> </p>
+      <p><left>
+	      Compare with SOTA self-supervised methods on Flickr-SoundNet dataset.
+      </left></p>
+      <div class="container">
+        <div class="image">
+          <img style="width:400px" src='./resources/vssl-flickr.jpg'></img>
+        </div>
+        <div class="text"> 
+          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
+            For both tasks, our proposed method shows superior performance on all supervision level.  
+          </p>
+        </div>
+      </div>
+          
+      <div class="container">
+        <div class="image">
+          <img style="width:400px" src='./resources/vssl-vggsound.jpg'></img>
+        </div>
+        <div class="text"> 
+          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
+            For both tasks, our proposed method shows superior performance on all supervision level.  
+          </p>
+        </div>
+      </div>
+      
+
+      <p><left>
+	      Open set setting on VGG-Sound dataset.
+      </left></p>
+
+      <div class="container">
+        <div class="image">
+          <img style="width:400px" src='./resources/vssl-openset.jpg'></img>
+        </div>
+        <div class="text"> 
+          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
+            For both tasks, our proposed method shows superior performance on all supervision level.  
+          </p>
+        </div>
+      </div>
+
+      <p><b>R2: Analysis of data transfomations </b> </p>
+      <div class="container">
+        <div class="image">
+          <img style="width:400px" src='./resources/vssl-ablation.jpg'></img>
+        </div>
+        <div class="text"> 
+          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
+            For both tasks, our proposed method shows superior performance on all supervision level.  
+          </p>
+        </div>
+      </div>
+
+      <p><b>R3: Audio retrieval and cross-modal retrieval </b> </p>
+      <p><left>
+	      Compare with SOTA self-supervised methods on Flickr-SoundNet dataset.
+      </left></p>
+      <div class="container">
+        <div class="image">
+          <img style="width:400px" src='./resources/retrieval-audio.jpg'></img>
+        </div>
+        <div class="text"> 
+          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
+            For both tasks, our proposed method shows superior performance on all supervision level.  
+          </p>
+        </div>
+      </div>
+
+
+      <p><left>
+	      Compare with SOTA self-supervised methods on Flickr-SoundNet dataset.
+      </left></p>
+      <div class="container">
+        <div class="image">
+          <img style="width:400px" src='./resources/retrieval-audio-image.jpg'></img>
+        </div>
+        <div class="text"> 
+          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
+            For both tasks, our proposed method shows superior performance on all supervision level.  
+          </p>
+        </div>
+      </div>
+
+      <br><hr>
+      
       <center> <h2> Acknowledgements </h2> </center>
       <p> 
 	      Based on a template by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a>.
