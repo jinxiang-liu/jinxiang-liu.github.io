@@ -1,17 +1,6 @@
-@misc{https://doi.org/10.48550/arxiv.2206.12772,
-  doi = {10.48550/ARXIV.2206.12772},
-  
-  url = {https://arxiv.org/abs/2206.12772},
-  
-  author = {Liu, Jinxiang and Ju, Chen and Xie, Weidi and Zhang, Ya},
-  
-  keywords = {Computer Vision and Pattern Recognition (cs.CV), Multimedia (cs.MM), Sound (cs.SD), Audio and Speech Processing (eess.AS), FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering},
-  
-  title = {Exploiting Transformation Invariance and Equivariance for Self-supervised Sound Localisation},
-  
-  publisher = {arXiv},
-  
-  year = {2022},
-  
-  copyright = {arXiv.org perpetual, non-exclusive license}
+@inproceedings{liu2022exploiting,
+  title={Exploiting Transformation Invariance and Equivariance for Self-supervised Sound Localisation},
+  author={Liu, Jinxiang and Ju, Chen and Xie, Weidi and Zhang, Ya},
+  booktitle={Proceedings of the 30th ACM International Conference on Multimedia},
+  year={2022}
 }
