@@ -253,14 +253,14 @@
       <center><h2> Abstract </h2> </center>
       <p style="text-align:justify; text-justify:inter-ideograph;">
       <left>
-	      We present a simple yet effective self-supervised framework for audio-visual representation learning,  to localize the sound source in videos. To understand what enables to learn useful representations, we systematically investigate the effects of data augmentations, and reveal that (1) composition of data augmentations plays a critical role, {\em i.e.}~explicitly encouraging the audio-visual representations to be invariant to various transformations~({\em transformation invariance}); (2) enforcing geometric consistency substantially improves the quality of learned representations, {\em i.e.}~the detected sound source should follow the same transformation applied on input video frames~({\em transformation equivariance}). Extensive experiments demonstrate that our model significantly outperforms previous methods on two sound localization benchmarks, namely, Flickr-SoundNet and VGG-Sound. Additionally, we also evaluate audio retrieval and cross-modal retrieval tasks. In both cases, our self-supervised models demonstrate superior retrieval performances, even competitive with the supervised approach in audio retrieval. This reveals the proposed framework learns strong multi-modal representations that are beneficial to sound localisation and generalization to further applications.
+	      We present a simple yet effective self-supervised framework for audio-visual representation learning,  to localize the sound source in videos. To understand what enables to learn useful representations, we systematically investigate the effects of data augmentations, and reveal that (1) composition of data augmentations plays a critical role, <i>i.e.</i> explicitly encouraging the audio-visual representations to be invariant to various transformations (<i>transformation invariance</i>); (2) enforcing geometric consistency substantially improves the quality of learned representations, <i>i.e.</i> the detected sound source should follow the same transformation applied on input video frames (<i>transformation equivariance</i>). Extensive experiments demonstrate that our model significantly outperforms previous methods on two sound localization benchmarks, namely, Flickr-SoundNet and VGG-Sound. Additionally, we also evaluate audio retrieval and cross-modal retrieval tasks. In both cases, our self-supervised models demonstrate superior retrieval performances, even competitive with the supervised approach in audio retrieval. This reveals the proposed framework learns strong multi-modal representations that are beneficial to sound localisation and generalization to further applications.
       </left></p>
       <p><img class="left"  src="./resources/framework.gif" width="800px"></p>
 	
       <br><hr>
       <center> <h2> Data Transformations </h2> </center>
       <p style="text-align:justify; text-justify:inter-ideograph;"><left>
-	  With the proposed framework, we investiagte the effects of correspondence invariance and geometrical transfomation equivariance properties of following augmentations:
+	  With the proposed framework, we investigate the effects of correspondence invariance and geometrical transfomation equivariance properties of following augmentations:
 
 	</left></p>
         <p><img class="left"  src="./resources/transformations.png" width="800px"></p>
@@ -513,15 +513,14 @@
       <center><h2>Quantitative Results</h2></center>
       <p><b>R1: Visual sound source localisation </b> </p>
       <p><left>
-	      Compare with SOTA self-supervised methods on Flickr-SoundNet dataset.
+	      Compare with current methods on Flickr-SoundNet and VGGSound datasets.
       </left></p>
       <div class="container">
-        <div class="image">
-          <img style="width:400px" src='./resources/vssl-flickr.jpg'></img>
+        <div class="image" >
+          <img style=" width:400px；" src='./resources/vssl-flickr.jpg'></img>
         </div>
         <div class="text"> 
-          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
-            For both tasks, our proposed method shows superior performance on all supervision level.  
+          <p> On both subset of Flickr-SoundNet, our proposed method outperforms current methods.  
           </p>
         </div>
       </div>
@@ -531,8 +530,7 @@
           <img style="width:400px" src='./resources/vssl-vggsound.jpg'></img>
         </div>
         <div class="text"> 
-          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
-            For both tasks, our proposed method shows superior performance on all supervision level.  
+          <p> On VGGSound dataset, our proposed method outperforms current SOTAs by a significant margin.  
           </p>
         </div>
       </div>
@@ -547,8 +545,7 @@
           <img style="width:400px" src='./resources/vssl-openset.jpg'></img>
         </div>
         <div class="text"> 
-          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
-            For both tasks, our proposed method shows superior performance on all supervision level.  
+          <p> Both approaches have experienced performance drop on unheard categories. However, our proposed model still maintains high localisation accuracy in this open set evaluation.
           </p>
         </div>
       </div>
@@ -556,41 +553,39 @@
       <p><b>R2: Analysis of data transfomations </b> </p>
       <div class="container">
         <div class="image">
-          <img style="width:400px" src='./resources/vssl-ablation.jpg'></img>
+          <img style="width:800px" src='./resources/vssl-ablation.jpg'></img>
         </div>
-        <div class="text"> 
-          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
-            For both tasks, our proposed method shows superior performance on all supervision level.  
-          </p>
-        </div>
+        
+      </div>
+      <div class="text"> 
+        <p> We perform the ablation study to show the usefulness of the data transfomations and the equivariance regularisation in the proposed framework.  
+        </p>
       </div>
 
       <p><b>R3: Audio retrieval and cross-modal retrieval </b> </p>
       <p><left>
-	      Compare with SOTA self-supervised methods on Flickr-SoundNet dataset.
+	      Audio retrieval for novel classes in VGGSound dataset.
       </left></p>
       <div class="container">
         <div class="image">
           <img style="width:400px" src='./resources/retrieval-audio.jpg'></img>
         </div>
         <div class="text"> 
-          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
-            For both tasks, our proposed method shows superior performance on all supervision level.  
+          <p> Our model trained on sound source localisation task has learnt powerful representations, which demonstrates strong retrieval performance comparable to supervised baseline (VGG-H). 
           </p>
         </div>
       </div>
 
 
       <p><left>
-	      Compare with SOTA self-supervised methods on Flickr-SoundNet dataset.
+	      Audio-image cross-modal retrieval on VGGSound dataset.
       </left></p>
       <div class="container">
         <div class="image">
           <img style="width:400px" src='./resources/retrieval-audio-image.jpg'></img>
         </div>
         <div class="text"> 
-          <p> We study the usefulness of self-supervised learning by varying the number of available volume annotations. 
-            For both tasks, our proposed method shows superior performance on all supervision level.  
+          <p> Our model shows strong cross-modal retrieval performances which surpasses baseline models by a large margin.  
           </p>
         </div>
       </div>
