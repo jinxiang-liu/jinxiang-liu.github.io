@@ -163,7 +163,7 @@
   }
 </style>
 
-	<title>Exploiting Transformation Invariance and Equivariance for Self-supervised Sound Localisation</title>
+	<title>Annotation-free Audio-Visual Segmentation</title>
 </head>
 
 <body>
@@ -275,7 +275,7 @@
       <br><hr>
       <center> <h2> AVS-Synthetic Dataset </h2> </center>
       <p style="text-align:justify; text-justify:inter-ideograph;"><left>
-        we propose an  annotation-free and scalable pipeline to construct artificial datasets for the AVS task by leveraging off-the-shelf image segmentation and audio datasets. For instance, we can combine an image-mask pair labeled as ''dog'' from the image segmentation dataset LVIS with an audio sample labeled as ''dog barking'' from the audio dataset VGGSound to obtain an <i>{image, mask, audio}</i> triplet, which serves as a training sample for the AVS task. 
+        We propose an  annotation-free and scalable pipeline to construct artificial datasets for the AVS task by leveraging off-the-shelf image segmentation and audio datasets. For instance, we can combine an image-mask pair labeled as ''dog'' from the image segmentation dataset LVIS with an audio sample labeled as ''dog barking'' from the audio dataset VGGSound to obtain an <i>{image, mask, audio}</i> triplet, which serves as a training sample for the AVS task. 
         In this triplet, <i>image</i> and <i>audio</i> are the model's inputs, and <i>mask</i> provides supervision for model training. 
         Comparing to the existing human-annotated dataset, this dataset synthesis pipeline inherits existing free annotations from computer vision communities, such as LVIS and Open Images; and most importantly, it requires zero extra annotation, 
 thus can easily be scaled up to cover a large number of categories. 
@@ -348,12 +348,11 @@ Note that, the parameters introduced by the adapters constitute only  0.3884% of
     <hr>
     <center><h2> Experiments On AVS-Synthetic Dataset </h2></center>
     <p style="text-align:justify; text-justify:inter-ideograph;"><left></left>
-    
       <p>We train our proposed SAMA-AVS model on the training split of the AVS-Synthetic dataset and present results on three experimental settings: 
         standard evaluation on the test split of AVS-Synthetic, 
         zero-shot evaluation on the test split of AVSBench, 
         and few-shot evaluation on the test split of AVSBench after real data finetuning.
-        experimental results demonstrate that the model trained with synthetic data from our proposed pipeline brings two benefits: (i) improving real-data efficiency, 
+        Experimental results demonstrate that the model trained with synthetic data from our proposed pipeline brings two benefits: (i) improving real-data efficiency, 
 (ii) boosting the model's overall performance for the AVS task.
 
       <p><img class="center"  src="./resources/fig3.png" width="800px"></p>
@@ -368,7 +367,7 @@ Note that, the parameters introduced by the adapters constitute only  0.3884% of
     <hr>
         <center><h2> Effectiveness of SAMA-AVS </h2></center>
         <p style="text-align:justify; text-justify:inter-ideograph;"><left></left>
-        <p>In this part, we conduct experiments to compare the performance of our proposed SAMA-AVS with other SAM-based methods and other state-of-the-art methods.
+        <p>We conduct experiments to compare the performance of our proposed SAMA-AVS with other SAM-based methods and other state-of-the-art methods.
           Extensive experimental results demonstrate the effectiveness of our proposed method, outperforming existing SAM-based methods and other competitors by a large margin.
           Moreover, pretraining our proposed model on our collected synthetic dataset, the model further attains a higher performance on both subsets of real AVSBench dataset. 
          
@@ -395,319 +394,7 @@ Note that, the parameters introduced by the adapters constitute only  0.3884% of
 
 
 
-<!-- 
-      <br>
-      <hr>
 
-      <center><h2>Visualizations of Retrieval </h2></center>
-      <p><b> (i) Audio retrieval </b> </p>
-      <p><left>
-	      
-      </left></p>
-      <p align="justify">
-        1. Query audio  </p></div>
-        <p style="text-align: center;">
-        <audio preload="none" controls="">
-          <source src="./resources/retrieval/audio/q1.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-                <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio/q1.png" alt="image" height="90" />      </span> </p></details>
-            
-        <p align="justify">
-              Retrieved audios  </p></div>
- 
-      <span>
-        <p style="text-align: center;">
-        <audio preload="none" controls="">
-          <source src="./resources/retrieval/audio/q1-1.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio> 
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-1.png" alt="image" height="90" />      </span> </p></details>
-
-      </span>
-      <span>
-        <p style="text-align: center;">
-        <audio preload="none" controls="" >
-          <source src="./resources/retrieval/audio/q1-2.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-2.png" alt="image" height="90" />  
-                  </span> </p></details>        
-      </span>
-      <span>
-        <p style="text-align: center;"> 
-        <audio preload="none" controls="" >
-          <source src="./resources/retrieval/audio/q1-3.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-3.png" alt="image" height="90" />  
-                  </span> </p></details>        
-      </span>
-
-      <span>
-        <p style="text-align: center;">
-        <audio preload="none" controls="" >
-          <source src="./resources/retrieval/audio/q1-4.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-4.png" alt="image" height="90" />  
-                  </span> </p></details>        
-      </span>
-
-      <span>
-        <p style="text-align: center;">
-        <audio preload="none" controls="" >
-          <source src="./resources/retrieval/audio/q1-5.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q1-5.png" alt="image" height="90" />  
-                  </span> </p></details>        
-      </span>
-
-
-
-      <p align="justify">
-        2. Query audio  </p></div>
-        <p style="text-align: center;">
-        <audio preload="none" controls="">
-          <source src="./resources/retrieval/audio/q2.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-                <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio/q2.png" alt="image" height="90" />      </span> </p></details>
-            
-        <p align="justify">
-              Retrieved audios  </p></div>
- 
-      <span>
-        <p style="text-align: center;">
-        <audio preload="none" controls="">
-          <source src="./resources/retrieval/audio/q2-1.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio> 
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-1.png" alt="image" height="90" />      </span> </p></details>
-
-      </span>
-      <span>
-        <p style="text-align: center;">
-        <audio preload="none" controls="" >
-          <source src="./resources/retrieval/audio/q2-2.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-2.png" alt="image" height="90" />  
-                  </span> </p></details>        
-      </span>
-      <span>
-        <p style="text-align: center;"> 
-        <audio preload="none" controls="" >
-          <source src="./resources/retrieval/audio/q2-3.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-3.png" alt="image" height="90" />  
-                  </span> </p></details>        
-      </span>
-
-      <span>
-        <p style="text-align: center;">
-        <audio preload="none" controls="" >
-          <source src="./resources/retrieval/audio/q2-4.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-4.png" alt="image" height="90" />  
-                  </span> </p></details>        
-      </span>
-
-      <span>
-        <p style="text-align: center;">
-        <audio preload="none" controls="" >
-          <source src="./resources/retrieval/audio/q2-5.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p> <span><img src="./resources/retrieval/audio/q2-5.png" alt="image" height="90" />  
-                  </span> </p></details>        
-      </span>
-
-
-
-
-      <p><b> (ii) Audio-image cross-modal retrieval </b> </p>
-      <p><left>
-	      
-      </left></p>
-      <p align="justify">
-        1. Query audio  </p></div>
-        <p style="text-align: center;">
-        <audio preload="none" controls="">
-          <source src="./resources/retrieval/audio-image/q1.wav" type="audio/wav">
-                Your browser does not support the audio tag.
-              </audio>
-            </p>
-                <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio-image/q1.png" alt="image" height="90" />      </span> </p></details>
-            
-        <p align="justify">
-              Retrieved images  </p></div>
- 
-      <span>
-        <p style="text-align: center;">
-          <span><img src="./resources/retrieval/audio-image/q1-1.png" alt="image" height="90" />      </span>
-          <span><img src="./resources/retrieval/audio-image/q1-2.png" alt="image" height="90" />      </span>
-          <span><img src="./resources/retrieval/audio-image/q1-3.png" alt="image" height="90" />      </span>
-          <span><img src="./resources/retrieval/audio-image/q1-4.png" alt="image" height="90" />      </span>
-          <span><img src="./resources/retrieval/audio-image/q1-5.png" alt="image" height="90" />      </span>
-
-      </span>
-      <p align="justify">
-      2. Query audio   </p></div>
-      <p style="text-align: center;">
-      <audio preload="none" controls="">
-        <source src="./resources/retrieval/audio-image/q2.wav" type="audio/wav">
-              Your browser does not support the audio tag.
-            </audio>
-          </p>
-              <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio-image/q2.png" alt="image" height="90" />      </span> </p></details>
-          
-      <p align="justify">
-            Retrieved images  </p></div>
-
-    <span>
-      <p style="text-align: center;">
-        <span><img src="./resources/retrieval/audio-image/q2-1.png" alt="image" height="90" />      </span>
-        <span><img src="./resources/retrieval/audio-image/q2-2.png" alt="image" height="90" />      </span>
-        <span><img src="./resources/retrieval/audio-image/q2-3.png" alt="image" height="90" />      </span>
-        <span><img src="./resources/retrieval/audio-image/q2-4.png" alt="image" height="90" />      </span>
-        <span><img src="./resources/retrieval/audio-image/q2-5.png" alt="image" height="90" />      </span>
-
-    </span>
-
-    <p align="justify">
-    3. Query audio     </p></div>
-    <p style="text-align: center;">
-    <audio preload="none" controls="">
-      <source src="./resources/retrieval/audio-image/q3.wav" type="audio/wav">
-            Your browser does not support the audio tag.
-          </audio>
-        </p>
-            <details style="text-align: center;"><summary>EXPAND</summary><p style="text-align: center;"> <span><img src="./resources/retrieval/audio-image/q3.png" alt="image" height="90" />      </span> </p></details>
-        
-    <p align="justify">
-          Retrieved images  </p></div>
-
-  <span>
-    <p style="text-align: center;">
-      <span><img src="./resources/retrieval/audio-image/q3-1.png" alt="image" height="90" />      </span>
-      <span><img src="./resources/retrieval/audio-image/q3-2.png" alt="image" height="90" />      </span>
-      <span><img src="./resources/retrieval/audio-image/q3-3.png" alt="image" height="90" />      </span>
-      <span><img src="./resources/retrieval/audio-image/q3-4.png" alt="image" height="90" />      </span>
-      <span><img src="./resources/retrieval/audio-image/q3-5.png" alt="image" height="90" />      </span>
-
-  </span>
-
-
-      
-
-
-      
-
-
-
-
-
-
-
-      <br><hr>
-
-      <center><h2>Quantitative Results</h2></center>
-      <p><b>R1: Visual sound source localisation </b> </p>
-      <p><left>
-	      Compare with current methods on Flickr-SoundNet and VGGSound datasets.
-      </left></p>
-      <div class="container">
-        <div class="image" >
-          <img style=" width:400px；" src='./resources/vssl-flickr.jpg'></img>
-        </div>
-        <div class="text"> 
-          <p> On both subset of Flickr-SoundNet, our proposed method outperforms current methods.  
-          </p>
-        </div>
-      </div>
-          
-      <div class="container">
-        <div class="image">
-          <img style="width:400px" src='./resources/vssl-vggsound.jpg'></img>
-        </div>
-        <div class="text"> 
-          <p> On VGGSound dataset, our proposed method outperforms current SOTAs by a significant margin.  
-          </p>
-        </div>
-      </div>
-      
-
-      <p><left>
-	      Open set setting on VGG-Sound dataset.
-      </left></p>
-
-      <div class="container">
-        <div class="image">
-          <img style="width:400px" src='./resources/vssl-openset.jpg'></img>
-        </div>
-        <div class="text"> 
-          <p> Both approaches have experienced performance drop on unheard categories. However, our proposed model still maintains high localisation accuracy in this open set evaluation.
-          </p>
-        </div>
-      </div>
-
-      <p><b>R2: Analysis of data transfomations </b> </p>
-      <div class="container">
-        <div class="image">
-          <img style="width:800px" src='./resources/vssl-ablation.jpg'></img>
-        </div>
-        
-      </div>
-      <div class="text"> 
-        <p> We perform the ablation study to show the usefulness of the data transfomations and the equivariance regularisation in the proposed framework.  
-        </p>
-      </div>
-
-      <p><b>R3: Audio retrieval and cross-modal retrieval </b> </p>
-      <p><left>
-	      Audio retrieval for novel classes in VGGSound dataset.
-      </left></p>
-      <div class="container">
-        <div class="image">
-          <img style="width:400px" src='./resources/retrieval-audio.jpg'></img>
-        </div>
-        <div class="text"> 
-          <p> Our model trained on sound source localisation task has learnt powerful representations, which demonstrates strong retrieval performance comparable to supervised baseline (VGG-H). 
-          </p>
-        </div>
-      </div>
-
-
-      <p><left>
-	      Audio-image cross-modal retrieval on VGGSound dataset.
-      </left></p>
-      <div class="container">
-        <div class="image">
-          <img style="width:400px" src='./resources/retrieval-audio-image.jpg'></img>
-        </div>
-        <div class="text"> 
-          <p> Our model shows strong cross-modal retrieval performances which surpasses baseline models by a large margin.  
-          </p>
-        </div>
-      </div>
-
-      <br><hr> -->
       <br>
       <hr>
       <center> <h2> Cite the Paper or Dataset  </h2> </center>
