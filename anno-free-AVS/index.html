@@ -298,9 +298,10 @@ thus can easily be scaled up to cover a large number of categories.
       <hr>
 
       <center><h2> Audio-Visual Segmentation with SAM Foundation Model </h2></center>
-      <p>We first investigate the performance of the vanilla SAM model on the AVS task by selecting the most similar predicted mask to the ground-truth mask.
+	<p style="text-align:justify; text-justify:inter-ideograph;"><left>
+      We first investigate the performance of the vanilla SAM model on the AVS task by selecting the most similar predicted mask to the ground-truth mask.
         Then we present two models to adapt the SAM model to AVS task: one is Audio-Prompted SAM (AP-SAM) inspired from SAM dealing with text prompts, the other is employing SAM with Adapters for the AVS task (SAMA-AVS).
-         </p>
+        
       <p><left>
 	      
 
@@ -347,8 +348,8 @@ Note that, the parameters introduced by the adapters constitute only  0.3884% of
     <br>
     <hr>
     <center><h2> Experiments On AVS-Synthetic Dataset </h2></center>
-    <p style="text-align:justify; text-justify:inter-ideograph;"><left></left>
-      <p>We train our proposed SAMA-AVS model on the training split of the AVS-Synthetic dataset and present results on three experimental settings: 
+    <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+      We train our proposed SAMA-AVS model on the training split of the AVS-Synthetic dataset and present results on three experimental settings: 
         standard evaluation on the test split of AVS-Synthetic, 
         zero-shot evaluation on the test split of AVSBench, 
         and few-shot evaluation on the test split of AVSBench after real data finetuning.
@@ -359,17 +360,15 @@ Note that, the parameters introduced by the adapters constitute only  0.3884% of
       <p><img class="center"  src="./resources/table2.png" width="800px"></p>
 
 
-           </p>
-      <p><left>
-      </left></p>
-      <!-- <p><img class="left"  src="./resources/transformations.png" width="800px"></p> -->
+         </left></p>
     <br>
     <hr>
         <center><h2> Effectiveness of SAMA-AVS </h2></center>
-        <p style="text-align:justify; text-justify:inter-ideograph;"><left></left>
-        <p>We conduct experiments to compare the performance of our proposed SAMA-AVS with other SAM-based methods and other state-of-the-art methods.
+        <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+        We conduct experiments to compare the performance of our proposed SAMA-AVS with other SAM-based methods and other state-of-the-art methods.
           Extensive experimental results demonstrate the effectiveness of our proposed method, outperforming existing SAM-based methods and other competitors by a large margin.
           Moreover, pretraining our proposed model on our collected synthetic dataset, the model further attains a higher performance on both subsets of real AVSBench dataset. 
+		</left></p>
          
           <span>
             <p style="text-align: center;">
