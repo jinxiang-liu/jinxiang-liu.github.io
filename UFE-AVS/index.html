@@ -1,0 +1,425 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!--
+  <script src="./resources/jsapi" type="text/javascript"></script>
+  <script type="text/javascript" async>google.load("jquery", "1.3.2");</script>
+ -->
+
+<style type="text/css">
+  @font-face {
+   font-family: 'Avenir Book';
+   src: url("./fonts/Avenir_Book.ttf"); /* File to be stored at your site */
+   }
+
+  body {
+    font-family: "Avenir Book", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight:300;
+    font-size:14px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+  }
+  h1 {
+    font-weight:300;
+  }
+  h2 {
+    font-weight:300;
+  }
+
+  p {
+    font-weight:300;
+    line-height: 1.4;
+  }
+
+  code {
+    font-size: 0.8rem;
+    margin: 0 0.2rem;
+    padding: 0.5rem 0.8rem;
+    white-space: nowrap;
+    background: #efefef;
+    border: 1px solid #d3d3d3;
+    color: #000000;
+    border-radius: 3px;
+  }
+
+  pre > code {
+    display: block;
+    white-space: pre;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+  }
+
+  pre.prettyprint > code {
+    border: none;
+  }
+
+
+  .container {
+        display: flex;
+        align-items: center;
+        justify-content: center
+  }
+  .image {
+        flex-basis: 40%
+  }
+  .text {
+        padding-left: 20px;
+        padding-right: 20px;
+  }
+
+  .disclaimerbox {
+    background-color: #eee;
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    padding: 20px;
+  }
+
+  video.header-vid {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.header-img {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.rounded {
+    border: 0px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+
+  }
+
+  a:link,a:visited
+  {
+    color: #1367a7;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #208799;
+  }
+
+  td.dl-link {
+    height: 160px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+            15px 15px 0 0px #fff, /* The fourth layer */
+            15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+            20px 20px 0 0px #fff, /* The fifth layer */
+            20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+            25px 25px 0 0px #fff, /* The fifth layer */
+            25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+
+  .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+  }
+
+  .vert-cent {
+    position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  hr
+  {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+</style>
+
+	<title>Annotation-free Audio-Visual Segmentation</title>
+</head>
+
+<body>
+	<br>
+	<center>
+	<span style="font-size:32px">Audio-Visual Segmentation via Unlabeled Frame Exploitation</span><br><br><br>
+	</center>
+	<table align="center" width="800px">
+            <tbody><tr>
+                    <td align="center" width="160px">
+              <center>
+                <span style="font-size:16px"><a href="https://jinxiang-liu.github.io/">Jinxiang Liu</a><sup></sup></span>
+                </center>
+                </td>
+                    <td align="center" width="160px">
+				<center>
+					<span style="font-size:16px"><a href="https://code-kunkun.github.io/">Yikun Liu</a><sup></sup></span>
+        </center>
+      </td>
+          <td align="center" width="160px">
+          <center>
+            <span style="font-size:16px"><a href="https://scholar.google.com/citations?user=Omrg6UkAAAAJ">Fei Zhang</a><sup></sup></span>
+            
+        
+        
+        </center>
+					</td>
+						<td align="center" width="160px">
+              <center>
+                <span style="font-size:16px"><a href="https://ju-chen.github.io/">Chen Ju</a><sup></sup></span>
+                </center>
+                </td>
+                    <td align="center" width="160px">
+				
+              <center>
+                <span style="font-size:16px"><a href="https://mediabrain.sjtu.edu.cn/yazhang/">Ya Zhang</a><sup></sup></span>
+                </center>
+                </td>
+                    <td align="center" width="160px">
+	          <center>
+                <span style="font-size:16px"><a href="https://mediabrain.sjtu.edu.cn/members/">Yanfeng Wang</a><sup></sup></span>
+                </center>
+		        </td>
+                 
+             
+            </tr>
+
+        </tbody></table><br>
+	
+	  <table align="center" width="700px">
+            <tbody><tr>
+                    <td align="center" width="50px">
+              <center>
+                    <span style="font-size:16px"></span>
+                </center>
+                </td>
+                    <td align="center" width="300px">
+              <center>
+                    <span style="font-size:16px"><sup></sup><a href='https://mediabrain.sjtu.edu.cn/'>CMIC, Shanghai Jiao Tong University</span>
+                    </center>
+                <!-- </td>
+                    <td align="center" width="300px">
+              <center>
+                    <span style="font-size:16px"><sup>2</sup>VGG, University of Oxford</span>
+                </center>
+                </td> -->
+        </tr></tbody></table>
+	
+	<table align="center" width="700px">
+            <tbody><tr>
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">Code
+                    <a href="https://github.com/jinxiang-liu/ufe-avs"> [GitHub]</a>
+                  </span>
+                </center>
+              </td>
+
+	    
+
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">
+                    Paper <a href="https://arxiv.org/abs/2403.11074"> [arXiv]</a>
+                  </span>
+                </center>
+              </td>
+
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">
+                    Video <a href="https://www.youtube.com/watch?v=j28vpsKaUuY"> [YouTube]</a>
+                  </span>
+                </center>
+              </td>
+		    
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">
+                    Cite <a href="./cite.txt"> [BibTeX]</a>
+                  </span>
+                </center>
+              </td>
+            </tr></tbody>
+      </table>
+	
+      <br><hr>
+      <center><h2> Abstract </h2> </center>
+      <p style="text-align:justify; text-justify:inter-ideograph;">
+      <left>
+        Audio-visual segmentation (AVS) aims to segment the sounding objects in video frames. Although great progress has been witnessed, we experimentally reveal that current methods reach marginal performance gain within the use of the unlabeled frames, leading to the underutilization issue. To fully explore the potential of the unlabeled frames for AVS, we explicitly divide them into two categories based on their temporal characteristics, i.e., neighboring frame (NF) and distant frame (DF). NFs, temporally adjacent to the labeled frame, often contain rich motion information that assists in the accurate localization of sounding objects. Contrary to NFs, DFs have long temporal distances from the labeled frame, which share semantic-similar objects with appearance variations. Considering their unique characteristics, we propose a versatile framework that effectively leverages them to tackle AVS. Specifically, for NFs, we exploit the motion cues as the dynamic guidance to improve the objectness localization. Besides, we exploit the semantic cues in DFs by treating them as valid augmentations to the labeled frames, which are then used to enrich data diversity in a self-training manner. Extensive experimental results demonstrate the versatility and superiority of our method, unleashing the power of the abundant unlabeled frames.      </left></p>
+      <p><img class="left"  src="resources/teaser.png" width="800px"></p>
+	
+      <br><hr>
+      <center> <h2> Motivation </h2> </center>
+      <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+        Mainstream methods for audio-visual segmentation (AVS) treat the labeled frames and unlabeled frames sampled from a video sequence equally and predict the masks for all frames. However, only the labeled frames have groundtruth supervision while the remaining abundant unlabeled frames have no supervision. And the only possible benefit which the unlabeled frames might provide for labeled frames is the contextual information with the global temporal modeling (GTM) operation. Concretely, global temporal modeling (GTM) employs cross-attention to model the temporal relationships of the features across all the frames from a video, including labeled and unlabeled ones. To illustrate, Zhou et al. deployed the cross-attention to integrate the space-time relations of the features in the TPAVI module in the audio-visual fusion stage; likewise, Gao et al. proposed the channel-attention mixer based on the cross-attention in the audio-visual fusion stage to obtain the mask features.
+
+        <br>
+        <br /> To measure the improvement by exploiting the unlabeled frames with GTM of the previous method including TPAVI and AVSegFormer, we establish the baseline by discarding the unlabeled frames and only using the labeled frames for model training. We perform experiments on AVSBench-S4 dataset and compare the performance with two typical methods TPAVI and AVSegFormer. The results on TPAVI baseline model are shown in the table, compared to the model trained with only labeled frames (w/o GTM), previous method such as  TPAVI, based on  global temporal modeling (w/ GTM) achieves only marginal performance gain: 0.14 gain with ResNet and 0.58 gain with PVT in mIoU. The results demonstrate the major issue of current methods: the  underutilization of the unlabeled frames to boost the performance for the AVS task. Based on the observation, we intend to devise a more effective method to fully exploit the unlabeled frames for the AVS task.
+        <p>
+          <center>
+          <img class="center"  src="resources/algorithm.jpg" width="400px"></p>
+          </center>
+
+
+         
+
+	</left></p>
+        <!-- <p><img class="left"  src="./resources/transformations.png" width="800px"></p> -->
+      <br>
+      <hr>
+
+      <center><h2> Method </h2></center>
+	<p style="text-align:justify; text-justify:inter-ideograph;"><left>
+    Based on the observation, we start by first dividing the unlabeled frames into two categories: neighboring frame (NF) and distant frame (DF), based on the temporal distance with the target labeled frame. Though the visual changes are very limited, NFs often contain rich dynamic motion information that is important to the audio-visual understanding. If properly used, the motion can not only assist in the accurate localization of the sounding objects but also provide the shape details of objects. For the DFs, both they and the labeled frame reflect the different stages of an audio-visual event. Contrary to the NFs, this long-term temporal relationship means that the DFs generally share the same or semantic-similar objects but with large appearance variations. Therefore, DFs could serve as the natural semantic augmentations for the labeled frames, which can be utilized to diversify the training data, thereby enhancing the model generalization capabilities.
+    
+    <p><img class="center"  src="resources/framework.png" width="800px"></p>
+
+    <br>
+    <br /> 
+Considering the characteristics of NFs and DFs, we propose a universal unlabeled frame exploitation (UFE) framework to leverage the two types of unlabeled frames with different strategies. For NFs, we extract the motion by calculating the optical flow between the target labeled frame and its NFs. And we explicitly feed the flow as model input to incorporate the motion guidance, which is complementary to the still RGB frame. In terms of DFs, since they are the natural semantic augmentations to labeled frames, the training data could be significantly enriched beyond the labeled frames. To this end, we propose a teacher-student network training framework to provide valid supervision for the unlabeled frames with the weak-to-strong consistency, where the predictions for the strong-augmented frames from the student are supervised by the predictions for the weakaugmented ones from the teacher.
+
+
+<center>
+  <img class="center"  src="resources/algorithm.jpg" width="400px"></p>
+  </center>
+
+<!-- </left></p> -->
+
+
+<p><left>
+	      
+</left></p>
+
+    
+    
+    
+    
+    <br>
+    <hr>
+    <center><h2> Improvement over Baseline Methods </h2></center>
+    <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+      We perform experiments based on AVSBench S4 and MS3 datasets following previous works. To verify the effectiveness of our method, we choose two typical baseline methods: FCN-based TPAVI and transformer-based AVSegFormer, and we apply our framework onto the baseline methods. We compare the performance between the models (Ours) and the baseline models in Tab. 1. As Tab. 1 shows, our method consistently improves the performance significantly on both TPAVI and AVSegFormer, which indicates the effectiveness and universality of our method.
+
+      <center>
+      <p><img class="center"  src="./resources/table1.jpg" width="400px"></p>
+      </center>
+      <!-- <p><img class="center"  src="./resources/table2.png" width="800px"></p> -->
+
+
+         </left></p>
+    <br>
+    <hr>
+        <center><h2> Comparison against Existing SOTAs </h2></center>
+        <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+          We also collect up-to-date AVS methods AVSC, CATR, AuTR, CMVAE, and SAMA-AVS; and we compare the performance of these methods with our proposed method. The results are shown in Tab. 2. The comparison shows the strong competitiveness of our proposed framework when compared with so various latest methods. Our method based on AVSegFormer is still the state-of-the-art method among all the methods. Moreover, on S4 subset, the original TPAVI method only has 72.8 M<sub>J</sub> with ResNet, 78.7 M<sub>J</sub> with PVT, which falls behind the other methods including AVSC, CATR, AuTR, ECMVAE. However, by combining our method with the TPAVI, the model (Ours w/TPAVI) has outperformed the other methods including AVSegFormer, AVSC, CATR, AuTR and ECMVAE in almost all metrics; and it becomes the second best model except our AVSegFormerbased model “ours w/ AVSegFormer” under the same backbones. The results clearly reveal the effectiveness of our versatile proposed framework. Notably, our framework can also be applied on these methods to further improve their performance.
+		</left></p>
+         
+          <!-- <span>
+            <p style="text-align: center;">
+              <span><img src="./resources/table4.png" alt="image" height="160" />      </span>
+              <!-- <span><img src="./resources/table5.png" alt="image" height="160" width="250" />      </span> -->
+              
+        
+        <center>
+          <p><img class="center"  src="./resources/table2.jpg" width="400px"></p>
+          </center>
+        </p>
+        <p><left>
+
+
+
+         
+          <!-- <span>
+            <p style="text-align: center;">
+              <span><img src="./resources/table4.png" alt="image" height="160" />      </span>
+              <!-- <span><img src="./resources/table5.png" alt="image" height="160" width="250" />      </span> -->
+              
+        
+        <!-- <center>
+          <p><img class="center"  src="./resources/table2.jpg" width="400px"></p>
+          </center>
+        </p>
+        <p><left> -->
+
+          <br>
+    <hr>
+
+          <center><h2> Qualitative Results </h2></center>
+          <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+            We qualitatively show some segmentation results of our method and the baselines including TPAVI and AVSegFormer with AVSBench S4 and MS3 datasets.
+      </left></p>
+           
+      <p><img class="center"  src="./resources/qualitative.png" width="800px"></p>
+      <p><img class="center"  src="./resources/s4-1.png" width="800px"></p>
+
+      <p><img class="center"  src="./resources/s4-2.png" width="800px"></p>
+      <p><img class="center"  src="./resources/ms3.png" width="800px"></p>
+
+
+
+
+      <br>
+      <hr>
+      <center> <h2> Cite the Paper  </h2> </center>
+      If you use the dataset in your research, please use the following BibTeX entry. If you have any question, feel free to contact jinxliu#sjtu.edu.cn (replace # with @).
+
+      <pre> 
+@article{liu2024audio,
+  title={Audio-Visual Segmentation via Unlabeled Frame Exploitation},
+  author={Liu, Jinxiang and Liu, Yikun and Zhang, Fei and Ju, Chen and Zhang, Ya and Wang, Yanfeng},
+  journal={arXiv preprint arXiv:2403.11074},
+  year={2024}
+}
+     </pre>
+
+
+     
+      <!-- <p style="text-align:left;font-size:9px;"> 
+	      Based on a template by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a>.
+      </p>
+      <br> -->
+
+      <!-- <center> <h2> Acknowledgements </h2> </center>
+      <p style="text-align:left;font-size:9px;"> 
+	      Based on a template by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a>.
+      </p>
+      <br> -->
+
+
+
+<br>
+</body>
+</html>
